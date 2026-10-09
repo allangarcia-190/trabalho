@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Button, Text, TextInput, View } from "react-native";
+import { Button, Image, ScrollView, Text, TextInput, View } from "react-native";
 
 interface BotaoProps {
   text:string;
@@ -13,19 +13,26 @@ const HomeScreen = ({onPress, text} : BotaoProps) => {
   const [curso, setCurso]= useState("Pobre");
   const [email, seteMail] = useState<string>("")
   return (
-    <View>
-      <Text>{nome}</Text>
-      <Text>{idade+10}</Text>
-      <Text>{curso}</Text>
-      <Text>{email}</Text>
-      <TextInput
-        value={email}
-        onChangeText={seteMail}
-        placeholder="digite o email"
-        ></TextInput>
-      <Button onPress={() => setCurso("sem teto")} title="{resultado do trabalho }"/>  
+     <View style={{flex:1, backgroundColor:'#fff'}}>
+      <ScrollView>
+        <Text>{nome}</Text>
+       <Text>{idade+10}</Text>
+        <Text>{curso}</Text>
+        <Text>{email}</Text>
+        <TextInput
+         value={email}
+         onChangeText={seteMail}
+         placeholder="digite o email"
+         ></TextInput>
+        <Button onPress={() => setCurso("sem teto")} title="{resultado do trabalho }"/>  
     
+       <Image source={{uri: "https://m.media-amazon.com/images/I/61yYhyyG3VL._AC_UF894,1000_QL80_.jpg"}} style={{width:250, height:250,borderRadius:175, alignSelf:'center', marginTop:200 }}/>
+        <Text style={{fontSize:20, fontWeight:'bold', alignItems:'center', textAlign:'center'}}>  "Pedro no parque" </Text>
     
+      <Image source={{uri: "https://m.magazineluiza.com.br/a-static/420x420/estatua-de-pato-musculoso-fofo-decoracao-3d-para-mesa-figurinha-divertida-para-estante-decoracao-none/aliexpress/207363034/6750ed32792d4fbbbaa107f01ac4d4df.jpeg"}} style={{width:250, height:250,borderRadius:175, alignSelf:'center', marginTop:200 }}/>
+     <Text style={{fontSize:20, fontWeight:'bold', alignItems:'center', textAlign:'center'}}>  "Pedro apos parque" </Text>
+    
+    </ScrollView>
     </View>
   )
 }
